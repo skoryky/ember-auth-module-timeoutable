@@ -26,7 +26,7 @@ class Em.Auth.TimeoutableAuthModule
   timeout: ->
     return if @_startTime == null
     period = @config.period * 60 * 1000 # in ms
-    return if @_startTime - new Date() < period
+    return if new Date() -  @_startTime < period
     @config.callback()
 
   # register a new timeout call
